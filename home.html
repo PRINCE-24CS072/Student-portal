@@ -1,310 +1,47 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Portal - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: linear-gradient(135deg, #d5f8fb 0%, #f4f4f4 100%);
-    }
-    .container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 32px 28px 36px 28px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0, 123, 255, 0.10), 0 1.5px 6px rgba(0,0,0,0.07);
-      position: relative;
-      overflow: hidden;
-      width: 95vw;
-      box-sizing: border-box;
-    }
-    .logo-top, .logo-left {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,123,255,0.10);
-      object-fit: cover;
-      background: #fff;
-      border: 2px solid #e0f2fa;
-      z-index: 2;
-    }
-    .logo-top {
-      top: 24px;
-      right: 32px;
-    }
-    .logo-left {
-      top: 24px;
-      left: 32px;
-    }
-    .header-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 18px;
-      margin-bottom: 0;
-      padding-top: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #007bff;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      font-size: 2.2rem;
-      word-break: break-word;
-    }
-    .main-nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
-      list-style: none;
-      padding: 0;
-    }
-  
-    .main-nav a {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #d5f8fb 60%, #b2e6fa 100%);
-      color: #007bff;
-      font-weight: 500;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,123,255,0.07);
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      border: 1px solid #e0f2fa;
-      font-size: 1.05rem;
-      white-space: nowrap;
-    }
-    .main-nav a:hover, .main-nav a:focus {
-      background: linear-gradient(90deg, #007bff 60%, #00c6fb 100%);
-      color: #fff;
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 4px 16px rgba(0,123,255,0.13);
-    }
-    .main-nav .logout {
-      background: linear-gradient(90deg, #ffb2b2 60%, #ff7b7b 100%);
-      color: #fff;
-      border: 1px solid #ffd6d6;
-    }
-    .main-nav .logout:hover, .main-nav .logout:focus {
-      background: linear-gradient(90deg, #ff5252 60%, #ff1744 100%);
-      color: #fff;
-    }
-    .welcome {
-      text-align: center;
-      color: #444;
-      font-size: 1.15rem;
-      margin-bottom: 18px;
-      margin-top: 0;
-      word-break: break-word;
-    }
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-      justify-content: center;
-      margin-top: 18px;
-    }
-    .quick-card {
-      background: #f7fcfe;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,123,255,0.06);
-      padding: 18px 24px;
-      min-width: 160px;
-      text-align: center;
-      color: #007bff;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: box-shadow 0.2s, transform 0.15s;
-      border: 1px solid #e0f2fa;
-      word-break: break-word;
-    }
-    .quick-card:hover {
-      box-shadow: 0 4px 16px rgba(0,123,255,0.13);
-      transform: translateY(-2px) scale(1.04);
-      background: #e6f7fb;
-    }
-    .event-container {
-      background: linear-gradient(90deg, #e3f6fc 60%, #f8fafc 100%);
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,123,255,0.07);
-      padding: 18px 24px 10px 24px;
-      margin: 0 auto 28px auto;
-      max-width: 600px;
-      text-align: left;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .event-container h2 {
-      color: #007bff;
-      font-size: 1.3rem;
-      margin: 0 0 12px 0;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      word-break: break-word;
-    }
-    .event-container ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .event-container li {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #e0f2fa;
-      font-size: 1.05rem;
-    }
-    .event-container li:last-child {
-      border-bottom: none;
-    }
-    .event-title {
-      color: #222;
-      font-weight: 500;
-      flex: 1 1 60%;
-      min-width: 120px;
-    }
-    .event-date {
-      color: #007bff;
-      font-size: 0.98rem;
-      font-weight: 600;
-      flex: 1 1 35%;
-      min-width: 100px;
-      text-align: right;
-    }
-    @media (max-width: 900px) {
-      .container {
-        padding: 18px 2vw 18px 2vw;
-        max-width: 99vw;
-      }
-      .logo-top, .logo-left {
-        width: 54px;
-        height: 54px;
-        top: 12px;
-      }
-      .logo-top { right: 12px; }
-      .logo-left { left: 12px; }
-      h1 {
-        font-size: 1.5rem;
-      }
-      .main-nav a {
-        padding: 10px 14px;
-        font-size: 0.98rem;
-      }
-      .quick-card {
-        padding: 12px 10px;
-        min-width: 120px;
-        font-size: 0.95rem;
-      }
-      .event-container {
-        padding: 12px 8px 8px 8px;
-        font-size: 0.98rem;
-      }
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 8px 1vw 10px 1vw;
-        margin: 10px auto;
-      }
-      .logo-top, .logo-left {
-        width: 38px;
-        height: 38px;
-        top: 4px;
-      }
-      .logo-top { right: 4px; }
-      .logo-left { left: 4px; }
-      .header-center {
-        margin-top: 8px;
-        padding-top: 8px;
-      }
-      h1 {
-        font-size: 1.1rem;
-      }
-      .main-nav ul {
-        gap: 6px;
-        margin: 18px 0 12px 0;
-      }
-      .main-nav a {
-        padding: 7px 7px;
-        font-size: 0.93rem;
-      }
-      .quick-links {
-        gap: 7px;
-      }
-      .quick-card {
-        padding: 8px 6px;
-        min-width: 90px;
-        font-size: 0.89rem;
-      }
-      .event-container {
-        padding: 7px 3px 5px 3px;
-        font-size: 0.93rem;
-        max-width: 99vw;
-      }
-      .event-title, .event-date {
-        font-size: 0.93rem;
-        min-width: 60px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-<body>
-  <div class="container">
-    <img src="logo3.png" alt="Institute Logo" class="logo-left"/>
-    <img src="logo2.jpeg" alt="Student Portal Logo" class="logo-top"/>
-    <div class="header-center">
+<body class="home-page">
+  <header class="home-header">
+    <img src="logo2.jpeg" alt="Logo Left" class="logo-left">
+    <div class="home-title">
       <h1>Student Portal</h1>
-      <p class="welcome">Where your academic journey meets clarity, control, and convenience.
+      <p>Where your academic journey meets clarity, control, and convenience.</p>
+    </div>
+    <img src="logo3.png" alt="Logo Right" class="logo-right">
+  </header>
 
-</p>
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="attendance.html">Attendance</a></li>
-        <li><a href="timetable.html">Timetable</a></li>
-        <li><a href="fees.html">Payment</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="setting.html">Settings</a></li>
-        <li><a href="index.html" class="logout">Log Out</a></li>
-      </ul>
-    </nav>
-    
-    <div class="event-container">
-      <h2>Upcoming Events</h2>
-      <ul>
-        <li>
-          <span class="event-title">Guest Lecture: AI in Education</span>
-          <span class="event-date">10 July, 11:00 AM</span>
-        </li>
-        <li>
-          <span class="event-title">Sports Meet Registration</span>
-          <span class="event-date">12 July, 2:00 PM</span>
-        </li>
-        <li>
-          <span class="event-title">Project Submission Deadline</span>
-          <span class="event-date">20 July</span>
-        </li>
-      </ul>
-    </div>
-    <!-- Event Container End -->
-    <div class="quick-links">
-      <a href="timetable.html" class="quick-card">Upcoming Classes</a>
-      <a href="fees.html" class="quick-card">Fee Due: 15 July</a>
-      <a href="results.html" class="quick-card">Latest Result: 2nd semester</a>
-     <a href="mailto:princeptel15306a@email.com" class="quick-card">Contact Faculty</a>
-      
-    </div>
-  </div>
+  <nav class="home-nav">
+    <a href="attendance.html">Attendance</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="fees.html">Payment</a>
+    <a href="results.html">Results</a>
+    <a href="profile.html">Profile</a>
+    <a href="contact.html">Contact</a>
+    <a href="setting.html">Settings</a>
+    <a href="index.html" class="logout">Log Out</a>
+  </nav>
+
+  <section class="events">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li><span>Guest Lecture: AI in Education</span><strong>10 July, 11:00 AM</strong></li>
+      <li><span>Sports Meet Registration</span><strong>12 July, 2:00 PM</strong></li>
+      <li><span>Project Submission Deadline</span><strong>20 July</strong></li>
+    </ul>
+  </section>
+
+  <section class="quick-links">
+    <a href="timetable.html">Upcoming Classes</a>
+    <a href="fees.html">Fee Due: 15 July</a>
+    <a href="results.html">Latest Result: 2nd semester</a>
+    <a href="contact.html">Contact Faculty</a>
+  </section>
 </body>
 </html>
