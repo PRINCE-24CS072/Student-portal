@@ -23,18 +23,6 @@
       <div id="errorMsg" style="color:red; margin-top:10px;"></div>
     </form>
   </div>
-  <script>
-  document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const userId = document.getElementById('userId').value;
-    const password = document.getElementById('password').value;
-    const errorMsg = document.getElementById('errorMsg');
-    if (userId === 'charusat' && password === 'password') {
-      window.location.href = 'home.html';
-    } else {
-      errorMsg.textContent = 'Invalid ID or password. Please try again.';
-    }
-  });
-</script>
+  
 </body>
 </html>
